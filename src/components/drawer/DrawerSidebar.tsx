@@ -47,7 +47,6 @@ const DrawerSidebar = () => {
                 <ListItemText primary={item.title} />
               </ListItemButton>
             </ListItem>
-              
               </Link>) 
             }
         </List>
