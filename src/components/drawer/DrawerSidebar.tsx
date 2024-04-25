@@ -24,6 +24,7 @@ const dashboardPaths = [
     },
   ];
 const DrawerSidebar = () => {
+    // const linkPath=`/dashboard/${item.path}`;
     const pathName=usePathname()
     
   return (
@@ -31,23 +32,24 @@ const DrawerSidebar = () => {
         <List>
             {
               dashboardPaths.map((item, index)=>
-            <Link href={`/dashboard/${item.path}`} key={index}>
-                <ListItem key={index}
-             disablePadding
-             sx={{
-                  ...(pathName === `/dashboard/${item.path}`
-                    ? { borderRight: "3px solid blue", "& svg": { color: "blue" },my:2 }
-                    : {}),
-                }}
-             >
-              <ListItemButton>
-                <ListItemIcon>
-                  {item.icon&&<item.icon/>}
-                </ListItemIcon>
-                <ListItemText primary={item.title} />
-              </ListItemButton>
-            </ListItem>
-              </Link>) 
+                <Link href={`/dashboard/${item.path}`} key={index} >
+              <ListItem disablePadding 
+              sx={{
+                color: pathName === `/dashboard/${item.path}` ? {borderRight: "3px solid yellow", color:'yellowgreen'} : 'inherit', 
+                my: 2,
+                "& svg": { color: pathName === `/dashboard/${item.path}` ? 'yellow' : 'inherit' },
+              }}
+              >
+                <ListItemButton>
+                  <ListItemIcon>
+                    {item.icon && <item.icon />}
+                  </ListItemIcon>
+                  <ListItemText primary={item.title} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+            
+              ) 
             }
         </List>
     </Box>

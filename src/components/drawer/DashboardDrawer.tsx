@@ -41,13 +41,15 @@ export default function DashboardDrawer({children}:{children:React.ReactNode}) {
   );
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar
+    <Box  sx={{ display: 'flex' }}>
+      {/* <CssBaseline /> */}
+      {/* <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          backgroundColor: 'yellow.200', // Set background color here
+
         }}
       >
         <Toolbar>
@@ -64,11 +66,13 @@ export default function DashboardDrawer({children}:{children:React.ReactNode}) {
           Implementation of drawer
           </Typography>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
+
+     
       <Box
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
+        sx={{ width: { sm: drawerWidth },  }}
+        // aria-label="mailbox folders"
       >
         <Drawer
           variant="temporary"
@@ -98,9 +102,10 @@ export default function DashboardDrawer({children}:{children:React.ReactNode}) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{ flexGrow: 1, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <Toolbar />
+        {/* to create a toolbar top of the page */}
+        {/* <Toolbar /> */}
         <Box>
         {children}
         </Box>
