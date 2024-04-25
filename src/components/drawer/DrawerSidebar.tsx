@@ -14,46 +14,45 @@ const dashboardPaths = [
     },
     {
       title: "Transactions",
-      path: `transactions`,
+      path: `/transactions`,
       icon: TbTransactionBitcoin,
     },
     {
       title: "Calendar",
-      path: `calendar`,
+      path: `/calendar`,
       icon: CalendarMonthIcon,
     },
   ];
 const DrawerSidebar = () => {
-    // const linkPath=`/dashboard/${item.path}`;
     const pathName=usePathname()
-    
-  return (
-    <Box>
-        <List>
-            {
-              dashboardPaths.map((item, index)=>
-                <Link href={`/dashboard/${item.path}`} key={index} >
-              <ListItem disablePadding 
-              sx={{
-                color: pathName === `/dashboard/${item.path}` ? {borderRight: "3px solid yellow", color:'yellowgreen'} : 'inherit', 
-                my: 2,
-                "& svg": { color: pathName === `/dashboard/${item.path}` ? 'yellow' : 'inherit' },
-              }}
-              >
-                <ListItemButton>
-                  <ListItemIcon>
-                    {item.icon && <item.icon />}
-                  </ListItemIcon>
-                  <ListItemText primary={item.title} />
-                </ListItemButton>
-              </ListItem>
-            </Link>
-            
-              ) 
-            }
-        </List>
-    </Box>
-  )
+    return (
+        <Box>
+          <List>
+            {dashboardPaths.map((item, index) => {
+              const linkPath = `/dashboard${item.path}`;
+              return (
+                <Link href={linkPath} key={index}>
+                  <ListItem
+                    disablePadding 
+                    sx={{
+                        ...(pathName === linkPath
+                          ? { borderRight: "3px solid #EAB308",  "& svg": { color: "#EAB308" } , color: 'yellowgreen' }
+                          : {}),
+                      }}
+                  >
+                    <ListItemButton>
+                      <ListItemIcon>
+                        {item.icon && <item.icon />}
+                      </ListItemIcon>
+                      <ListItemText primary={item.title} />
+                    </ListItemButton>
+                  </ListItem>
+                </Link>
+              );
+            })}
+          </List>
+        </Box>
+      );
+      
 }
-
 export default DrawerSidebar

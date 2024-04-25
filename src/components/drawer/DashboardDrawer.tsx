@@ -43,7 +43,7 @@ export default function DashboardDrawer({children}:{children:React.ReactNode}) {
   return (
     <Box  sx={{ display: 'flex' }}>
       {/* <CssBaseline /> */}
-      {/* <AppBar
+      <AppBar className="visible md:hidden"
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -66,7 +66,7 @@ export default function DashboardDrawer({children}:{children:React.ReactNode}) {
           Implementation of drawer
           </Typography>
         </Toolbar>
-      </AppBar> */}
+      </AppBar>
 
      
       <Box
@@ -106,7 +106,7 @@ export default function DashboardDrawer({children}:{children:React.ReactNode}) {
       >
         {/* to create a toolbar top of the page */}
         {/* <Toolbar /> */}
-        <Box>
+        <Box className="">
         {children}
         </Box>
       </Box>
