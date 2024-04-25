@@ -23,15 +23,15 @@ const dashboardPaths = [
       icon: CalendarMonthIcon,
     },
   ];
-const DrawerSidebar = () => {
-    const pathName=usePathname()
+const DrawerSidebar = ({handleDrawerClose}:{handleDrawerClose:()=>void}) => {
+    const pathName=usePathname();
     return (
         <Box>
-          <List>
+          <List  >
             {dashboardPaths.map((item, index) => {
               const linkPath = `/dashboard${item.path}`;
               return (
-                <Link href={linkPath} key={index}>
+                <Link onClick={handleDrawerClose} href={linkPath} key={index}>
                   <ListItem
                     disablePadding 
                     sx={{

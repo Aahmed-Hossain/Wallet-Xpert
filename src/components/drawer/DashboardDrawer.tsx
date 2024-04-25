@@ -2,16 +2,14 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import DrawerSidebar from './DrawerSidebar';
 
-const drawerWidth = 240;
+const drawerWidth = 230;
 
 export default function DashboardDrawer({children}:{children:React.ReactNode}) { 
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -36,19 +34,20 @@ export default function DashboardDrawer({children}:{children:React.ReactNode}) {
     <div>
       <Box className="font-extrabold text-4xl h-12 text-center mt-4">Wallet<span className='text-yellow-500'>Xpert</span> </Box>
       <Divider />
-      <DrawerSidebar/>
+      <DrawerSidebar handleDrawerClose={handleDrawerClose} />
     </div>
   );
 
   return (
     <Box  sx={{ display: 'flex' }}>
       {/* <CssBaseline /> */}
-      <AppBar className="visible md:hidden"
+      <AppBar className=""
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          backgroundColor: 'yellow.200', // Set background color here
+          backgroundColor: 'gray',
+
 
         }}
       >
@@ -62,9 +61,7 @@ export default function DashboardDrawer({children}:{children:React.ReactNode}) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-          Implementation of drawer
-          </Typography>
+          <Box className="font-extrabold text-4xl h-12 text-center mt-4">Wallet<span className='text-yellow-500'>Xpert</span> </Box>
         </Toolbar>
       </AppBar>
 
@@ -104,8 +101,7 @@ export default function DashboardDrawer({children}:{children:React.ReactNode}) {
         component="main"
         sx={{ flexGrow: 1, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        {/* to create a toolbar top of the page */}
-        {/* <Toolbar /> */}
+        <Toolbar/>
         <Box className="">
         {children}
         </Box>
