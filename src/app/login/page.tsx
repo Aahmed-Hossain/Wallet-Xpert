@@ -14,7 +14,8 @@ import { FieldValues } from "react-hook-form";
 import { MdOutlineLogin } from "react-icons/md";
 const LoginPage = () => {
   const handleLogin = (values: FieldValues) => {
-    console.log(values);
+   
+    console.log(values)
   };
   return (
     <Container>
@@ -47,7 +48,7 @@ const LoginPage = () => {
               <MdOutlineLogin />
             </Box>
             <Box>
-              <Typography fontWeight={700} fontSize={50} color="#7C3AED">
+              <Typography fontWeight={700} fontSize={50} color="#EAB308">
                 Login
               </Typography>
             </Box>

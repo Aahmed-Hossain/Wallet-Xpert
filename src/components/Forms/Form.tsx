@@ -51,7 +51,7 @@ const Form = ({ children, onSubmit, resolver, defaultValues }: TFormProps) => {
       reset()
   }
 
-  
+
   return (
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(submit)}>{children}</form>
