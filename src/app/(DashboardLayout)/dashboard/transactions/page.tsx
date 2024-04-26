@@ -1,5 +1,6 @@
+"use client"
 import Image from 'next/image';
-import React from 'react'
+import React, { useState } from 'react'
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import img1 from '../../../../../public/images/staff1.jpg'
@@ -15,6 +16,28 @@ const data = [
   {id: 4, image: img4, transactionType:'Shopping', transactionFrom: 'wallet', amount: 80, date: '08/02/2023'  }
 ]
 const TransactionPage = () => {
+
+  const [optionsOpen, setOptionsOpen] = useState(false);
+
+  const toggleOptions = () => {
+    setOptionsOpen(!optionsOpen);
+  };
+
+  const handleEdit = () => {
+    // Handle edit functionality here
+    // For example, navigate to edit page or perform edit operation
+    console.log("Edit button clicked");
+    setOptionsOpen(false); // Close options after clicking
+  };
+
+  const handleDelete = () => {
+    // Handle delete functionality here
+    // For example, show confirmation modal or perform delete operation
+    console.log("Delete button clicked");
+    setOptionsOpen(false); // Close options after clicking
+  };
+
+
   return (
     <div>
       {/* monthly transaction bar */}
@@ -28,19 +51,31 @@ const TransactionPage = () => {
     data.map((datum)=>
       <div key={datum.id} className='flex justify-between items-center border-t px-2 md:px-6 py-2 hover:bg-gray-100 cursor-pointer  '>
     <div className='flex items-center'>
-    <Image className="rounded-full h-full w-full " src={img1} width={40} height={40} alt='expense category images'/>
+    <Image className="rounded-full h-full w-full " src={datum.image} width={40} height={40} alt='expense category images'/>
       <div className='ml-1 md:ml-3'>
         <p >{datum.transactionType}</p>
         <p >{datum.transactionFrom}</p>
       </div>
       </div>
   
-      <div className='flex'>
-        <div>
+      <div className='flex mr-1'>
+        <div className='mr-1'>
         <p > -৳ 9.00</p>
         <p >12/03/24</p>
         </div>
-        <button className="font-bold px-4 mx-1 border hover:bg-slate-200 hover:text-[#EAB308]">< BsThreeDotsVertical /></button>
+        <button onClick={toggleOptions} className="font-bold px-4 mx-1 border hover:bg-slate-200">< BsThreeDotsVertical />
+        {/* options button */}
+        {optionsOpen && (
+        <div className="absolute top-1/2 right-3 mt-1 bg-white shadow-lg border rounded ">
+          <button className="block w-full text-left px-4 py-2 hover:bg-gray-100 hover:text-[#EAB308]" onClick={handleEdit}>
+            Edit
+          </button>
+          <button className="block w-full text-left px-4 py-2 hover:bg-gray-100 hover:text-[#EAB308]" onClick={handleDelete}>
+            Delete
+          </button>
+        </div>
+      )}
+        </button>
 
         <span className='border-r-4 border-r-green-500 ml-2'></span>
       </div>
