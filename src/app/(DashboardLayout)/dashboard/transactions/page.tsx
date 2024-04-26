@@ -79,7 +79,6 @@ const TransactionPage = () => {
 
         <span className='border-r-4 border-r-green-500 ml-2'></span>
       </div>
-  
     </div>)
   }
 </div>
