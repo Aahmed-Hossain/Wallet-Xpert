@@ -16,27 +16,20 @@ const data = [
   {id: 4, image: img4, transactionType:'Shopping', transactionFrom: 'wallet', amount: 80, date: '08/02/2023'  }
 ]
 const TransactionPage = () => {
-
+  
   const [optionsOpen, setOptionsOpen] = useState(false);
-
   const toggleOptions = () => {
-    setOptionsOpen(!optionsOpen);
-  };
-
+    setOptionsOpen(!optionsOpen)
+  }
+  
   const handleEdit = () => {
-    // Handle edit functionality here
-    // For example, navigate to edit page or perform edit operation
-    console.log("Edit button clicked");
-    setOptionsOpen(false); // Close options after clicking
-  };
-
+    console.log(' edit button clicked');
+    setOptionsOpen(false)
+  }
   const handleDelete = () => {
-    // Handle delete functionality here
-    // For example, show confirmation modal or perform delete operation
-    console.log("Delete button clicked");
-    setOptionsOpen(false); // Close options after clicking
-  };
-
+    console.log(' delete button clicked');
+    setOptionsOpen(false);
+  }
 
   return (
     <div>
@@ -63,8 +56,7 @@ const TransactionPage = () => {
         <p > -৳ 9.00</p>
         <p >12/03/24</p>
         </div>
-        <button onClick={toggleOptions} className="font-bold px-4 mx-1 border hover:bg-slate-200">< BsThreeDotsVertical />
-        {/* options button */}
+        <button onClick={toggleOptions} className="  font-bold px-4 mx-1 border hover:bg-slate-200">< BsThreeDotsVertical />
         {optionsOpen && (
         <div className="absolute top-1/2 right-3 mt-1 bg-white shadow-lg border rounded ">
           <button className="block w-full text-left px-4 py-2 hover:bg-gray-100 hover:text-[#EAB308]" onClick={handleEdit}>
@@ -77,8 +69,10 @@ const TransactionPage = () => {
       )}
         </button>
 
+
         <span className='border-r-4 border-r-green-500 ml-2'></span>
       </div>
+  
     </div>)
   }
 </div>
